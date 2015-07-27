@@ -97,8 +97,12 @@ namespace UnityStandardAssets._2D
                 //}
 				if (playerGunRotation >= 90f && playerGunRotation < 270f && m_FacingRight) {
 					Flip ();
+					GetComponent<BoxCollider2D> ().offset = new Vector2(-1.31f, 0.35f);
+					GetComponent<CircleCollider2D> ().offset = new Vector2(-1.31f, -0.45f);
 				} else if (((playerGunRotation >= 270f && playerGunRotation <= 360f) || (playerGunRotation >= 0f && playerGunRotation < 90f)) && !m_FacingRight) {
 					Flip ();
+					GetComponent<BoxCollider2D> ().offset = new Vector2(0f, 0.35f);
+					GetComponent<CircleCollider2D> ().offset = new Vector2(0f, -0.45f);
 				}
 			}
             // If the player should jump...

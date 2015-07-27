@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ArmRotation : MonoBehaviour {
 
+	public float rotZ;
 	bool m_FacingRight = true;
 
 	// Update is called once per frame
@@ -10,9 +11,8 @@ public class ArmRotation : MonoBehaviour {
 		Vector3 difference = Camera.main.ScreenToWorldPoint (Input.mousePosition) - transform.position;
 		difference.Normalize ();
 
-		float rotZ = Mathf.Atan2 (difference.y, difference.x) * Mathf.Rad2Deg;
+		rotZ = Mathf.Atan2 (difference.y, difference.x) * Mathf.Rad2Deg;
 		transform.rotation = Quaternion.Euler (0f, 0f, rotZ);
-		Debug.Log (m_FacingRight + " " + rotZ);
 
 		if (((rotZ > 90f && rotZ < 180f) || (rotZ > -180f && rotZ < -90f)) && m_FacingRight) {
 			flip ();

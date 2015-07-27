@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
@@ -21,6 +22,7 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
 		Transform playerGraphics;
+		float playerGunRotation;
 
         private void Awake()
         {
@@ -36,6 +38,8 @@ namespace UnityStandardAssets._2D
         private void FixedUpdate()
         {
             m_Grounded = false;
+			playerGunRotation = transform.FindChild ("Gun").rotation.eulerAngles.z;
+			Debug.Log (m_FacingRight + " " + playerGunRotation);
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -80,18 +84,23 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
 
                 // If the input is moving the player right and the player is facing left...
-                if (move > 0 && !m_FacingRight)
-                {
+                //if (move > 0 && !m_FacingRight)
+                //{
                     // ... flip the player.
-                    Flip();
-                }
+                    //Flip();
+                //}
                     // Otherwise if the input is moving the player left and the player is facing right...
-                else if (move < 0 && m_FacingRight)
-                {
+                //else if (move < 0 && m_FacingRight)
+                //{
                     // ... flip the player.
-                    Flip();
-                }
-            }
+                    //Flip();
+                //}
+				if (playerGunRotation >= 90f && playerGunRotation < 270f && m_FacingRight) {
+					Flip ();
+				} else if (((playerGunRotation >= 270f && playerGunRotation <= 360f) || (playerGunRotation >= 0f && playerGunRotation < 90f)) && !m_FacingRight) {
+					Flip ();
+				}
+			}
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
             {

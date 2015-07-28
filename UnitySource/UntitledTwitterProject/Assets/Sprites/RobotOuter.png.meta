@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 0378b098cf8668244866f241270ee731
-timeCreated: 1437999374
+timeCreated: 1438071651
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -61,7 +61,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
+        width: 28
         height: 29
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -69,9 +69,9 @@ TextureImporter:
     - name: RobotOuter_1
       rect:
         serializedVersion: 2
-        x: 25
+        x: 29
         y: 0
-        width: 24
+        width: 28
         height: 29
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -79,9 +79,9 @@ TextureImporter:
     - name: RobotOuter_2
       rect:
         serializedVersion: 2
-        x: 50
+        x: 58
         y: 0
-        width: 24
+        width: 28
         height: 29
       alignment: 0
       pivot: {x: .5, y: .5}

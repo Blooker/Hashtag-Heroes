@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Destroy (this.gameObject, 2.5f);	
 		flameEffect = GameObject.Find ("E_FlameParticles").GetComponent<ParticleSystem> ();
 		smokeEffect = GameObject.Find ("E_SmokeParticles").GetComponent<ParticleSystem> ();
 	}
@@ -16,7 +17,5 @@ public class EnemyScript : MonoBehaviour {
 	void FixedUpdate () {
 		GetComponent<Rigidbody2D> ().velocity *= 0.97f;
 		GetComponent<Rigidbody2D> ().AddForce(Vector2.right * -30);
-		flameEffect.Emit(2);
-		smokeEffect.Emit(2);
 	}
 }

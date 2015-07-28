@@ -1,10 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CloudScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayerScript.cs" Line="18" Column="50" />
+      <File FileName="Assets\Scripts\PlayerScript.cs" Line="19" Column="28" />
       <File FileName="Assets\Scripts\ArmRotation.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Twitter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GM.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemySpawnScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EnemyScript.cs" Line="19" Column="62" />
+      <File FileName="Assets\Scripts\CloudScript.cs" Line="8" Column="33" />
+      <File FileName="Assets\Scripts\CloudSpawn.cs" Line="21" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -14,6 +14,11 @@ public class TwitterAuth : MonoBehaviour {
 	public string hashtag;
 	[Multiline]
 	public string searchResults;
+	string profilePicUrl;
+	int picUrlLength;
+	string fileType;
+	List<string> imageUrls = new List<string>();
+	String[] imageUrlsArray = new string[50];
 
 	// Use this for initialization
 	void Start () {
@@ -47,7 +52,7 @@ public class TwitterAuth : MonoBehaviour {
 		headers = new Dictionary<string, string> ();
 		headers ["Authorization"] = string.Format ("Bearer {0}", bearer);
 
-		WWW www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL(hashtag), null, headers);
+		WWW www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL(hashtag) + "&result_type=recent&count=50", null, headers);
 
 		yield return www;
 		//System.IO.File.WriteAllText (Application.dataPath + "/Tweets.json", www.text);
@@ -55,8 +60,26 @@ public class TwitterAuth : MonoBehaviour {
 		Debug.Log (JSON.Parse (www.text));
 
 		foreach (JSONClass tweet in JSON.Parse(www.text).AsObject["statuses"].AsArray) {
-			Debug.Log(tweet["text"]);
+			profilePicUrl = tweet["user"]["profile_image_url_https"];
+			picUrlLength = profilePicUrl.Length;
+			//Debug.Log(picUrlLength);
+			if (profilePicUrl.Substring(picUrlLength - 4) == "jpeg") {
+				profilePicUrl = profilePicUrl.Remove(picUrlLength - 12);
+				fileType = ".jpeg";
+			} else if (profilePicUrl.Substring(picUrlLength - 4) == ".jpg") {
+				profilePicUrl = profilePicUrl.Remove(picUrlLength - 11);
+				fileType = ".jpg";
+			} else {
+				profilePicUrl = profilePicUrl.Remove(picUrlLength - 11);
+				fileType = ".png";
+			}
+			profilePicUrl += "_reasonably_small" + fileType;
+			imageUrls.Add(profilePicUrl);
+			Debug.Log(profilePicUrl);
 		}
+		imageUrlsArray = imageUrls.ToArray ();
+		Array.Reverse (imageUrlsArray);
+		Debug.Log (imageUrlsArray[1]);
 	}
 
 	public void Search () {

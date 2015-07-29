@@ -5,9 +5,11 @@ public class EnemyScript : MonoBehaviour {
 
 	ParticleSystem flameEffect;
 	ParticleSystem smokeEffect;
+	GameObject GM;
 
 	// Use this for initialization
 	void Start () {
+		GM = GameObject.Find ("GM_");
 		Destroy (this.gameObject, 2.5f);	
 		flameEffect = GameObject.Find ("E_FlameParticles").GetComponent<ParticleSystem> ();
 		smokeEffect = GameObject.Find ("E_SmokeParticles").GetComponent<ParticleSystem> ();

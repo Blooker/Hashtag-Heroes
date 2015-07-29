@@ -14,20 +14,25 @@ public class TwitterAuth : MonoBehaviour {
 	public string hashtag;
 	[Multiline]
 	public string searchResults;
+	public String[] imageUrlsArray = new string[50];
+	public bool searchComplete = false;
+	public List<string> imageUrls = new List<string>();
+	bool listEmpty = false;
 	string profilePicUrl;
 	int picUrlLength;
 	string fileType;
-	List<string> imageUrls = new List<string>();
-	String[] imageUrlsArray = new string[50];
+
+
 
 	// Use this for initialization
 	void Start () {
 		bearer = "";
+		StartCoroutine (_Search());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	private IEnumerator _Login () {
@@ -75,11 +80,13 @@ public class TwitterAuth : MonoBehaviour {
 			}
 			profilePicUrl += "_reasonably_small" + fileType;
 			imageUrls.Add(profilePicUrl);
-			Debug.Log(profilePicUrl);
+			//Debug.Log(profilePicUrl);
 		}
 		imageUrlsArray = imageUrls.ToArray ();
+		imageUrls.Reverse ();
 		Array.Reverse (imageUrlsArray);
-		Debug.Log (imageUrlsArray[1]);
+		searchComplete = true;
+		//Debug.Log (imageUrlsArray[1]);
 	}
 
 	public void Search () {

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemySpawnScript : MonoBehaviour {
 
+	GameObject GM;
 	bool spawnEnemies = true;
 	public float spawnInterval;
 	public GameObject enemy;
@@ -12,15 +13,16 @@ public class EnemySpawnScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		GM = GameObject.Find ("GM_");
 		oldNum = 0;
 		randomNum = 0;
-		Spawn ();
+		//Spawn ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-		if (timer >= spawnInterval && spawnEnemies == true) {
+		if (timer >= spawnInterval && spawnEnemies == true && GM.GetComponent<TwitterAuth> ().searchComplete == true) {
 			Spawn ();
 			timer = 0f;
 			if (spawnInterval >= 0.5f) {

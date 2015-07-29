@@ -3,12 +3,14 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
+	GameObject GM;
 	ParticleSystem flameEffect;
 	ParticleSystem smokeEffect;
 	bool keyPress = false;
 
 	// Use this for initialization
 	void Start () {
+		GM = GameObject.Find ("GM_");
 		flameEffect = GameObject.Find ("FlameParticles").GetComponent<ParticleSystem> ();
 		smokeEffect = GameObject.Find ("SmokeParticles").GetComponent<ParticleSystem> ();
 	}
@@ -19,13 +21,17 @@ public class PlayerScript : MonoBehaviour {
 		if (Input.GetKey (KeyCode.W)) {
 			flameEffect.Emit(2);
 			smokeEffect.Emit(2);
-			GetComponent<Rigidbody2D> ().AddForce (transform.up * 20f);
+			GetComponent<Rigidbody2D> ().AddForce (transform.up * 40f);
 		} else if (Input.GetKey (KeyCode.S)) {
 			keyPress = true;
-			GetComponent<Rigidbody2D> ().AddForce (transform.up * -20f);
+			GetComponent<Rigidbody2D> ().AddForce (transform.up * -40f);
 		} else {
 			flameEffect.Emit(2);
 			smokeEffect.Emit(2);
 		}
+	}
+
+	void OnTriggerEnter2D (Collider2D collider) {
+		GM.SendMessage ("KillPlayer");
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemySpawnScript : MonoBehaviour {
 
+	bool spawnEnemies = true;
 	public float spawnInterval;
 	public GameObject enemy;
 	float timer;
@@ -19,7 +20,7 @@ public class EnemySpawnScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timer += Time.deltaTime;
-		if (timer >= spawnInterval) {
+		if (timer >= spawnInterval && spawnEnemies == true) {
 			Spawn ();
 			timer = 0f;
 			if (spawnInterval >= 0.5f) {
@@ -40,5 +41,9 @@ public class EnemySpawnScript : MonoBehaviour {
 		} else {
 			Instantiate(enemy, new Vector3(17.4f, -3.4f, 0f), Quaternion.identity);
 		}
+	}
+
+	void KillPlayer () {
+		spawnEnemies = false;
 	}
 }

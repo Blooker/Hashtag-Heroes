@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -8,8 +8,9 @@ using Newtonsoft.Json.Linq;
 
 public class TwitterAuth : MonoBehaviour {
 
+	WWW www;
 	public string consumerKey;
-	public string consumerSecret;
+	public TextAsset	 consumerSecret;
 	private Dictionary<string, string> headers;
 	private string bearer;
 	public string hashtag;
@@ -21,17 +22,18 @@ public class TwitterAuth : MonoBehaviour {
 	public string profileLinkCol;
 	public List<string> profileLinkColList = new List<string> ();
 	public TextAsset textTest;
+	string oldestID;
+	bool toStart = false;
 	bool listEmpty = false;
 	string profilePicUrl;
 	int picUrlLength;
 	string fileType;
 
-
-
 	// Use this for initialization
 	void Start () {
+		oldestID = "";
 		bearer = "";
-		StartCoroutine (_Search());
+		//StartCoroutine (_Search());
 	}
 	
 	// Update is called once per frame
@@ -56,7 +58,7 @@ public class TwitterAuth : MonoBehaviour {
 
 		WWWForm wwwForm = new WWWForm();
 		wwwForm.AddField ("grant_type", "client_credentials");
-		WWW www = new WWW ("https://api.twitter.com/oauth2/token", wwwForm.data, headers);
+		www = new WWW ("https://api.twitter.com/oauth2/token", wwwForm.data, headers);
 
 		yield return www;
 
@@ -73,7 +75,15 @@ public class TwitterAuth : MonoBehaviour {
 
 		//Task.Factory.StartNew(() => JsonConvert.DeserializeObject(value, type, settings));
 
-		WWW www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL(hashtag) + "&result_type=recent&count=50", null, headers);
+		if (oldestID == "") {
+			www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL (hashtag) + "&result_type=recent&count=50", null, headers);
+		} else {
+			if (toStart) {
+				www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL (hashtag) + "&result_type=recent&count=50", null, headers);
+			} else {
+				www = new WWW ("https://api.twitter.com/1.1/search/tweets.json?q=" + WWW.EscapeURL (hashtag) + "&count=50&max_id=" + oldestID, null, headers);
+			}
+		}
 
 		yield return www;
 
@@ -82,7 +92,7 @@ public class TwitterAuth : MonoBehaviour {
 		myJob.InData = wwwText;
 
 		myJob.Start();
-		//System.IO.File.WriteAllText (Application.dataPath + "/Tweets.json", www.text);
+		System.IO.File.WriteAllText (Application.dataPath + "/Tweets.json", www.text);
 
 		//Debug.Log (JSON.Parse (www.text));
 
@@ -90,7 +100,6 @@ public class TwitterAuth : MonoBehaviour {
 		while (!myJob.Update()) {
 			yield return null;
 		}
-		
 		foreach (JObject tweet in (JArray)myJob.OutData["statuses"]) {
 			profilePicUrl = (string)tweet["user"]["profile_image_url_https"];
 			profileLinkCol = (string)tweet["user"]["profile_link_color"];
@@ -119,9 +128,11 @@ public class TwitterAuth : MonoBehaviour {
 			profilePicUrl += "_reasonably_small" + fileType;
 			imageUrls.Add(profilePicUrl);
 			profileLinkColList.Add (profileLinkCol);
+			oldestID = (string)tweet["id_str"];
 		}
 		imageUrls.Reverse ();
 		profileLinkColList.Reverse ();
+		toStart = false;
 		searchComplete = true;
 		//Debug.Log (imageUrlsArray[1]);
 	}

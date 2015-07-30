@@ -18,10 +18,7 @@ Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Mana
 Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
 Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
-- Completed reload, in  0.082 seconds
+- Completed reload, in  0.093 seconds
 desktop: 1366x768 59Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\System.dll (this message is harmless)

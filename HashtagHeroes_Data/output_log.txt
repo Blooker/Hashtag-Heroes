@@ -6,19 +6,26 @@ Direct3D:
     Vendor:   Intel
     VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-Platform assembly: C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
-Loading C:\Users\Evan\Documents\HashtagHeroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
-- Completed reload, in  0.093 seconds
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll (this message is harmless)
+Loading C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\Newtonsoft.Json.dll into Unity Child Domain
+- Completed reload, in  0.106 seconds
 desktop: 1366x768 59Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Evan\Hashtag-Heroes\HashtagHeroes_Data\Managed\System.dll (this message is harmless)
+IT WORKED?!?!?!?
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+

@@ -1,0 +1,34 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PlayButton : MonoBehaviour {
+
+	GameObject GM;
+
+	// Use this for initialization
+	void Start () {
+		GM = GameObject.Find ("GM_");
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+	void OnMouseDown() {
+		GameObject.Find ("InputField").GetComponent<Rigidbody2D> ().AddForce (Vector2.up * 50000);
+		GetComponent<Rigidbody2D> ().AddForce (Vector2.down * 1000);
+		GetComponent<BoxCollider2D> ().enabled = false;
+		Debug.Log ("IT WORKED?!?!?!?");
+		GM.GetComponent<GM> ().startGame = true;
+		StartCoroutine (stopText ());
+		//Destroy (GameObject.Find ("InputField").gameObject, 1f);
+		//Destroy (this.gameObject, 1.1f);
+	}
+
+	IEnumerator stopText () {
+		yield return new WaitForSeconds(0.8f);
+		GetComponent<Rigidbody2D> ().AddForce (Vector2.up * 1000);
+		GameObject.Find ("InputField").GetComponent<Rigidbody2D> ().AddForce (Vector2.down * 50000);
+	}
+}

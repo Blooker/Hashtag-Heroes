@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 public class GM : MonoBehaviour {
 
-	bool timeIncrease = true;
+	public bool startGame = false;
+	bool playerSpawned = false;
+	bool timeIncrease = false;
 	float timer;
 	float timerFloor;
 	float minuteTimer;
 	GameObject UITimer;
+	public GameObject player;
 	string timerString;
 	public GameObject explosion;
 
@@ -21,6 +24,16 @@ public class GM : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (startGame && !playerSpawned) {
+			Instantiate(player, new Vector3(-6f, 0, 0), Quaternion.identity);
+			GetComponent<TwitterAuth> ().Search();
+			playerSpawned = true;
+		}
+
+		if (GetComponent<TwitterAuth> ().searchComplete && !timeIncrease) {
+			timeIncrease = true;
+		}
+
 		if (timeIncrease == true) {
 			timer += Time.deltaTime;
 			timerFloor = Mathf.Floor (timer) - (minuteTimer * 60);
@@ -36,8 +49,8 @@ public class GM : MonoBehaviour {
 
 	void KillPlayer () {
 		timeIncrease = false;
-		Instantiate (explosion, GameObject.Find ("Player").gameObject.transform.position, Quaternion.identity);
-		UITimer.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * -36500f);
-		Destroy (GameObject.Find ("Player").gameObject);
+		Instantiate (explosion, GameObject.Find ("Player(Clone)").gameObject.transform.position, Quaternion.identity);
+		//UITimer.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * -36500f);
+		Destroy (GameObject.Find ("Player(Clone)").gameObject);
 	}
 }

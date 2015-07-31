@@ -5,15 +5,18 @@ using UnityEngine.UI;
 public class GM : MonoBehaviour {
 
 	public bool startGame = false;
+	bool playingGame = false;
+	public bool lose = false;
 	bool playerSpawned = false;
 	bool timeIncrease = false;
 	float timer;
-	float timerFloor;
-	float minuteTimer;
+	public float timerFloor;
+	public float minuteTimer;
 	GameObject UITimer;
 	public GameObject player;
 	string timerString;
 	public GameObject explosion;
+	public GameObject[] enemies;
 
 	// Use this for initialization
 	void Start () {
@@ -30,8 +33,9 @@ public class GM : MonoBehaviour {
 			playerSpawned = true;
 		}
 
-		if (GetComponent<TwitterAuth> ().searchComplete && !timeIncrease) {
+		if (GetComponent<TwitterAuth> ().searchComplete && !playingGame) {
 			timeIncrease = true;
+			playingGame = true;
 		}
 
 		if (timeIncrease == true) {
@@ -45,6 +49,7 @@ public class GM : MonoBehaviour {
 			}
 			UITimer.GetComponent<Text> ().text = timerString;
 		}
+		//Debug.Log (timeIncrease);
 	}
 
 	void KillPlayer () {
@@ -52,5 +57,18 @@ public class GM : MonoBehaviour {
 		Instantiate (explosion, GameObject.Find ("Player(Clone)").gameObject.transform.position, Quaternion.identity);
 		//UITimer.GetComponent<Rigidbody2D> ().AddForce (Vector2.up * -36500f);
 		Destroy (GameObject.Find ("Player(Clone)").gameObject);
+		UITimer.GetComponent<Text> ().text = "";
+		enemies = GameObject.FindGameObjectsWithTag ("Enemy");
+		enemies [0].GetComponent<EnemyScript> ().timerIncrease = false;
+		StartCoroutine (GameOver ());
+		//GameObject.Find("TweetText").GetComponent<TextMesh> ().text = enemies [0].GetComponent<EnemyScript> ().tweet;
+	}
+
+	IEnumerator GameOver () {
+		yield return new WaitForSeconds(1f);
+		lose = true;
+		enemies [0].transform.position = new Vector3 (1.12f, 4f, 0);
+		enemies [0].GetComponent<EnemyScript> ().lose = true;
+		enemies [0].GetComponent<Rigidbody2D> ().velocity *= 0f;
 	}
 }

@@ -10,7 +10,7 @@ public class TwitterAuth : MonoBehaviour {
 
 	WWW www;
 	public string consumerKey;
-	public TextAsset	 consumerSecret;
+	public TextAsset consumerSecret;
 	private Dictionary<string, string> headers;
 	private string bearer;
 	public string hashtag;
@@ -21,6 +21,8 @@ public class TwitterAuth : MonoBehaviour {
 	public List<string> imageUrls = new List<string>();
 	public string profileLinkCol;
 	public List<string> profileLinkColList = new List<string> ();
+	public List<string> tweetList = new List<string> ();
+	public List<string> handleList = new List<string> ();
 	public TextAsset textTest;
 	string oldestID;
 	bool toStart = false;
@@ -94,12 +96,11 @@ public class TwitterAuth : MonoBehaviour {
 		myJob.Start();
 		System.IO.File.WriteAllText (Application.dataPath + "/Tweets.json", www.text);
 
-		//Debug.Log (JSON.Parse (www.text));
-
 		//foreach (JSONClass tweet in JSON.Parse(textTest.text).AsObject["statuses"].AsArray) {
 		while (!myJob.Update()) {
 			yield return null;
 		}
+		//Debug.Log ((JObject)myJob.OutData);
 		foreach (JObject tweet in (JArray)myJob.OutData["statuses"]) {
 			profilePicUrl = (string)tweet["user"]["profile_image_url_https"];
 			profileLinkCol = (string)tweet["user"]["profile_link_color"];
@@ -127,11 +128,16 @@ public class TwitterAuth : MonoBehaviour {
 			}
 			profilePicUrl += "_reasonably_small" + fileType;
 			imageUrls.Add(profilePicUrl);
+			tweetList.Add((string)tweet["text"]);
 			profileLinkColList.Add (profileLinkCol);
+			handleList.Add ("@" + (string)tweet["user"]["screen_name"])	;
+			Debug.Log("@" + (string)tweet["user"]["screen_name"]);
 			oldestID = (string)tweet["id_str"];
 		}
 		imageUrls.Reverse ();
 		profileLinkColList.Reverse ();
+		tweetList.Reverse ();
+		handleList.Reverse ();
 		toStart = false;
 		searchComplete = true;
 		//Debug.Log (imageUrlsArray[1]);

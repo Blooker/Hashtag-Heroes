@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour {
 	ParticleSystem flameEffect;
 	ParticleSystem smokeEffect;
 	bool keyPress = false;
+	public bool lose = false;
 
 	// Use this for initialization
 	void Start () {

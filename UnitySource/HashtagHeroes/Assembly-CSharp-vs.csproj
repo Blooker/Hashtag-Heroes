@@ -53,13 +53,17 @@
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\EnemySpawnScript.cs" />
      <Compile Include="Assets\Scripts\GM.cs" />
+     <Compile Include="Assets\Scripts\HandleDisplay.cs" />
      <Compile Include="Assets\Scripts\HashtagEnter.cs" />
      <Compile Include="Assets\Scripts\JSONJob.cs" />
+     <Compile Include="Assets\Scripts\KilledByDisplay.cs" />
      <Compile Include="Assets\Scripts\PlayButton.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\StartButton.cs" />
      <Compile Include="Assets\Scripts\ThreadedJob.cs" />
+     <Compile Include="Assets\Scripts\TimeDisplay.cs" />
      <Compile Include="Assets\Scripts\TimerScript.cs" />
+     <Compile Include="Assets\Scripts\TweetDisplay.cs" />
      <Compile Include="Assets\Scripts\TwitterAuth.cs" />
      <Compile Include="Assets\Scripts\TwitterLinkColGet.cs" />
      <Compile Include="Assets\Scripts\TwitterPicGet.cs" />

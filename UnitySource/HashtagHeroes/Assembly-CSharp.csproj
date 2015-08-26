@@ -67,6 +67,8 @@
      <Compile Include="Assets\Scripts\TwitterAuth.cs" />
      <Compile Include="Assets\Scripts\TwitterLinkColGet.cs" />
      <Compile Include="Assets\Scripts\TwitterPicGet.cs" />
+     <Compile Include="Assets\Scripts\TwitterPlayerColGet.cs" />
+     <Compile Include="Assets\Scripts\TwitterPlayerPicGet.cs" />
      <None Include="Assets\secret.txt" />
      <None Include="Assets\Plugins\Newtonsoft.Json.xml" />
  <Reference Include="UnityEngine.UI">
@@ -79,7 +81,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Evan/Hashtag-Heroes/UnitySource/HashtagHeroes/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/Evan/Documents/Hashtag-Heroes/UnitySource/HashtagHeroes/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

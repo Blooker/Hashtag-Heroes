@@ -6,7 +6,6 @@ public class PlayerScript : MonoBehaviour {
 	GameObject GM;
 	ParticleSystem flameEffect;
 	ParticleSystem smokeEffect;
-	bool keyPress = false;
 	public bool lose = false;
 
 	// Use this for initialization
@@ -24,7 +23,6 @@ public class PlayerScript : MonoBehaviour {
 			smokeEffect.Emit(2);
 			GetComponent<Rigidbody2D> ().AddForce (transform.up * 40f);
 		} else if (Input.GetKey (KeyCode.S)) {
-			keyPress = true;
 			GetComponent<Rigidbody2D> ().AddForce (transform.up * -40f);
 		} else {
 			flameEffect.Emit(2);

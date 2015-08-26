@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\DisasteroidsGit\Disasteroids\Assets\Resources\Scripts\GoldCountScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\secret.txt">
     <Files>
-      <File FileName="..\..\..\DisasteroidsGit\Disasteroids\Assets\Resources\Scripts\ComboText.cs" Line="14" Column="2" />
-      <File FileName="..\..\..\DisasteroidsGit\Disasteroids\Assets\Resources\Scripts\GoldCountScript.cs" Line="20" Column="2" />
+      <File FileName="Assets\secret.txt" Line="1" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

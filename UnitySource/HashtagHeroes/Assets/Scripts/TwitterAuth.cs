@@ -11,7 +11,7 @@ public class TwitterAuth : MonoBehaviour {
 
 	WWW www;
 	public string consumerKey;
-	public TextAsset consumerSecret;
+	public string consumerSecret;
 	private Dictionary<string, string> headers;
 	private string bearer;
 	public string hashtag;
